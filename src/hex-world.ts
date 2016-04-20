@@ -5,7 +5,7 @@ import { Loading } from './states/loading';
 // import { Menu } from './states/menu';
 import { Game } from './states/game';
 
-export class MyGame extends Phaser.Game {
+export class HexWorld extends Phaser.Game {
     constructor() {
         super(800, 600, Phaser.CANVAS);
 
@@ -18,4 +18,4 @@ export class MyGame extends Phaser.Game {
     }
 }
 
-let game = new MyGame();
+let game = new HexWorld();
