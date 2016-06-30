@@ -53,18 +53,7 @@ export class Game extends Phaser.State {
         }
     }
 
-    render() {
-        this.game.debug.text('FPS: ' + this.game.time.fps, 2, 12);
-
-        if (this.hexMap.activeHex) {
-            this.hexMap.activeHex.displayDebugInfo(2, 26);
-        }
-    }
-
     update() {
-        let camera = this.game.camera;
-        let input = this.game.input;
-        let zoomPoint = new Phaser.Point();
         let hex = this.hexMap.activeHex;
 
         //if (hex) {
@@ -74,6 +63,22 @@ export class Game extends Phaser.State {
         //}
         //this.text.x = this.game.camera.x + this.zoom.viewWidth / 2;
         //this.text.y = this.game.camera.y + this.zoom.viewHeight / 2;
+
+        this.updateCamera();
+    }
+
+    render() {
+        this.game.debug.text('FPS: ' + this.game.time.fps, 2, 12);
+
+        if (this.hexMap.activeHex) {
+            this.hexMap.activeHex.displayDebugInfo(2, 26);
+        }
+    }
+
+    private updateCamera() {
+        let camera = this.game.camera;
+        let input = this.game.input;
+        let zoomPoint = new Phaser.Point();
 
         zoomPoint.x = input.mousePointer.worldX;
         zoomPoint.y = input.mousePointer.worldY;
